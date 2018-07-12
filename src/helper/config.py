@@ -18,9 +18,10 @@ POLICY = {
     'side': 13,
     'channels': 3,
 
-    # train policy
+    # train policy( total 1k : 10 min in jaehyuk PC)
     'BATCH_SIZE': 8,
-    'NUM_EPOCHS': 10, # kgenerated * NUM_EPOCH is concenptually epoch
+    'NUM_EPOCHS': 200, # video epoch(4k), total image: 800k,  img/video = 200
+    # 4k / 8 * 200 = 100k -> 16h
 
     # train_loss
     'object_scale': .5,
@@ -31,10 +32,9 @@ POLICY = {
     'thresh_IOU': .6,
 
     # train_optimizer
-    'step_values': [200000, 400000],
+    'step_values': [50000, 100000],
     'learning_rates': [0.00001, 0.000001, 0.0000001],
     'momentum': 0.9,
     'momentum2': 0.999,
     'decay': 0.0005,
-    'max_iter': 600000,
 }

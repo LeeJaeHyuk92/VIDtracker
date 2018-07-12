@@ -162,9 +162,10 @@ if __name__ == "__main__":
 
     # train
     try:
-        for i in range(start, int((total_image_size) / BATCH_SIZE * NUM_EPOCHS)):
-            if i % int((total_image_size) / BATCH_SIZE) == 0:
-                logger.info("start epoch[%d]" % (int(float(i) / (total_image_size) * BATCH_SIZE)))
+        for i in range(start, int((len(train_vid_videos)) / BATCH_SIZE * NUM_EPOCHS)):
+            # save every 1h
+            if i % int((len(train_vid_videos)) * 12 / BATCH_SIZE) == 0:
+                logger.info("start epoch[%d]" % (int(float(i) / (len(train_vid_videos)) * BATCH_SIZE)))
                 if i > start:
                     save_ckpt = "checkpoint.ckpt"
                     last_save_itr = i
